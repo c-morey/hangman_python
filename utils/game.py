@@ -19,7 +19,7 @@ class Hangman:
 
        """
 
-        self.possible_words = ['becode', 'learning', 'mathematics', 'sessions']
+        self.possible_words = ['becode', 'learning', 'mathematics', 'sessions','butterfly','elephant']
         self.word_to_find = []
         self.lives = 5
         self.correctly_guessed_letters = []
@@ -105,13 +105,17 @@ class Hangman:
 
         """
 
+        #chosing a random word from the list
         self.chosen_word = random.choice(self.possible_words)
         self.word_to_find.append(self.chosen_word)
+        #assign the length of the unique characters in the chosen word to num_of_char variables. This will later help to check for match.
         self.num_of_char = len(set(self.chosen_word))
+        #transform the word into dashes at the beginning of the game
         dashed_word = ["_" for i in range(len(self.chosen_word))]
         print("Here is your word to guess!")
         print(self.display_with_space(dashed_word))
 
+        #when the player's life is not 0 and the number of characters doesn't match, the while loop will keep asking the player to put a new letter.
         while self.lives != 0 and self.num_of_char != len(self.correctly_guessed_letters):
             user_input = self.check_input(input("Please enter a letter: "))
             self.turn_count += 1
@@ -120,11 +124,12 @@ class Hangman:
                 index = 0
                 for letter in self.chosen_word:
                     if letter == user_input:
+                        #when there is a match, the correctly guessed letter will be replaced by the dash.
                         dashed_word = "".join(dashed_word[:index]) + letter + "".join(dashed_word[index + 1:])
                     index += 1
                 print(self.display_with_space(dashed_word))
 
-
+            #if there is no match between the player's guess and the word, the player loses 1 life, and the letter is added to the wrongly_guessed_letters list.
             else:
                 self.lives = self.lives - 1
                 self.error_count += 1
