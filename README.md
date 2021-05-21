@@ -24,6 +24,6 @@ To start the game, the following command will be run in the terminal:
 - Comparison operators
 - For and While Loops
 - If/elif/else statements
-- Docstrings in Python
+- Docstrings and comments in Python
 
 **To further see the details of the assignment, please [click!](https://github.com/becodeorg/BXL-Bouman-3.31/blob/main/content/0.projects/1.python/1.hangman_oop.md)**
