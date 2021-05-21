@@ -3,16 +3,16 @@ from typing import List
 
 
 class Hangman:
-    """A class to represent the Hangman game. The purpose is to find the hidden word in 5 trials."""
+    """A class to represent the Hangman game. The purpose is to find the hidden word."""
 
     def __init__(self):
 
         """
-        :param possible_words List: A list of words to be guessed.
-        :param word_to_find List: The word that the player needs to guess. It's chosen randomly from the possible words list.
+        :param possible_words List[str]: A list of words to be guessed.
+        :param word_to_find List[str]: The word that the player needs to guess. It's chosen randomly from the possible words list.
         :param lives int: Number of lives the player has. It starts with 5 and decreases until 0 if the players can not find the word.
-        :param correctly_guessed_letters List: A list containing the matching letters with the word to guess.
-        :param wrongly_guessed_letters List: A list containing the non-matching letters with the word to guess.
+        :param correctly_guessed_letters List[str]: A list containing the matching letters with the word to guess.
+        :param wrongly_guessed_letters List[str]: A list containing the non-matching letters with the word to guess.
         :param turn_count int: An integer that counts each time the player enters a letter.
         :param error_count int: An integer that counts each time the player makes a wrong guess.
         :param num_of_char int: An integer that states the number of unique character the hidden word has.
@@ -55,7 +55,7 @@ class Hangman:
         word = [i for i in word]
         return ' '.join(word)
 
-    def start_game(self):
+    def start_game(self) -> object:
         """
         A method that initiates the self.play() method, the game starts. During the game, if the player has 0 lives
         then self.game_over() method runs, game ends.
@@ -65,6 +65,8 @@ class Hangman:
         """
         self.play()
         print(self.num_of_char, self.correctly_guessed_letters)
+
+
         if self.lives == 0:
             self.game_over()
         if self.num_of_char == len(self.correctly_guessed_letters):
@@ -89,8 +91,7 @@ class Hangman:
         when the player guesses the correct word before losing all his/her lives.
         """
 
-        print(
-            f"YES YOU WIN!You found the word: {self.chosen_word} in {self.turn_count} turns with {self.error_count} errors!")
+        print(f"YES YOU WIN!You found the word: {self.chosen_word} in {self.turn_count} turns with {self.error_count} errors!")
 
     def play(self):
 
@@ -122,8 +123,7 @@ class Hangman:
                         dashed_word = "".join(dashed_word[:index]) + letter + "".join(dashed_word[index + 1:])
                     index += 1
                 print(self.display_with_space(dashed_word))
-                # print("num_of_char: ",self.num_of_char)
-                # print("correctly_guessed: ",len(self.correctly_guessed_letters))
+
 
             else:
                 self.lives = self.lives - 1
