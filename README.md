@@ -10,7 +10,7 @@ The [Hangman](https://en.wikipedia.org/wiki/Hangman_(game)) is a guessing game f
 ![Hangman (Image)](https://i.pinimg.com/564x/56/21/55/5621553db7eedebcad64bf185be3d7e6.jpg)
 
 
-## How the game is constructed?
+## How the game is constructed for this project?
 The player will see a word with dashes(e.g. -----) instead of letters, this will help the player to know how many letters the word consists of. Each time the player guesses a letter correctly, the dash will be replaced with the correct letter. The player can make maximum 5 wrong guesses before lose the game. 
 
 To start the game, the following command will be run in the terminal:
