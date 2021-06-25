@@ -1,4 +1,5 @@
 ## The Hangman
+Play the Hangman with Python!
 
 ### The Mission
 This project is part of a solo challenge given by the [BeCode](https://becode.org/learn/ai-bootcamp/). The aim is to build the Hangman game in Python that is played in the terminal. 
